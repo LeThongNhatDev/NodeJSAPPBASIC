@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<style>
+    .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 1em;
+    }
+
+    input[type="text"]:focus {
+        border-color: #04aa6d;
+        box-shadow: 0 0 5px rgba(4, 170, 109, 0.5);
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #04aa6d;
+        color: white;
+        font-size: 1em;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+        background-color: #028a53;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/create">create user</a>
+    </div>
+    <div class="container">
+        <h1>Chi tiết người dùng</h1>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" value="<%= dataUser.email %>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="name">Họ và Tên:</label>
+            <input type="text" id="name" value="<%= dataUser.name %>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="city">Nơi ở:</label>
+            <input type="text" id="city" value="<%= dataUser.city %>" readonly>
+        </div>
+    </div>
+
+    <!-- Update User Section -->
+    <div class="container">
+        <h1>Cập nhật thông tin người dùng</h1>
+        <form action="/update-user" method="POST" style="margin: auto !important;">
+            <div class="form-group">
+                <label for="update-email">Email:</label>
+                <input type="text" id="update-email" name="email" placeholder="Nhập email mới">
+            </div>
+            <div class="form-group">
+                <label for="update-name">Họ và Tên:</label>
+                <input type="text" id="update-name" name="name" placeholder="Nhập tên mới">
+            </div>
+            <div class="form-group">
+                <label for="update-city">Nơi ở:</label>
+                <input type="text" id="update-city" name="city" placeholder="Nhập nơi ở mới">
+            </div>
+            <input type="text" name="id" id="" value="<%= dataUser.id %>" hidden>
+            <button type="submit">Cập nhật</button>
+        </form>
+    </div>
+</body>
+
+</html>
